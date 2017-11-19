@@ -5,11 +5,9 @@
               android:orientation="vertical">
 
     <include
-        android:id="@+id/label"
         layout="@layout/label"/>
 
     <include
-        android:id="@+id/view_pager"
-        layout="@layout/view_pager"/>
+        layout="@layout/page"/>
 
 </LinearLayout>

@@ -1,40 +1,67 @@
 package com.example.a123.mymoney;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.example.a123.mymoney.fragment.AddExpenseFragment;
 import com.example.a123.mymoney.fragment.AddIncomeFragment;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
-    TabLayout mTabLayout;
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.billing);
-        viewPager=(ViewPager) findViewById(R.id.view_pager);
+
+
+
+
+
+        viewPager= findViewById(R.id.view_pager);
+
         viewPager.setAdapter(new CustomerAdapter(getSupportFragmentManager(),getApplicationContext()));
 
-        mTabLayout=findViewById(R.id.label);
-        mTabLayout.setupWithViewPager(viewPager);
+        tabLayout=findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
 
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+        });
     }
 
     private class CustomerAdapter extends FragmentPagerAdapter {
+
+
         private String[] labels=getResources().getStringArray(R.array.add_expense_income_fragment);
 
         public CustomerAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
         }
+
+
 
         @Override
         public Fragment getItem(int position) {
@@ -61,5 +88,7 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return labels[position];
         }
+
     }
+
 }
