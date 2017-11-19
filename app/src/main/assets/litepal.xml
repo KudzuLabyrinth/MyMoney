@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+
+    <dbname value="my_money"/>
+    <version value="1"/>
+
+    <list>
+        <mapping class="com.example.a123.mymoney.db.CashFlow"/>
+        <mapping class="com.example.a123.mymoney.db.Category"/>
+        <mapping class="com.example.a123.mymoney.db.Treasury"/>
+    </list>
+
+
+</litepal>

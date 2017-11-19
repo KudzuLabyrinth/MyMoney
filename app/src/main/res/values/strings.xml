@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Money</string>
+    
+    <string-array name="add_expense_income_fragment">
+
+        <item>支出</item>
+        <item>收入</item>
+
+    </string-array>
+</resources>
