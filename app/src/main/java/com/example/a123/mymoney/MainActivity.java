@@ -22,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.billing);
 
-
-
-
-
         viewPager= findViewById(R.id.view_pager);
 
         viewPager.setAdapter(new CustomerAdapter(getSupportFragmentManager(),getApplicationContext()));
