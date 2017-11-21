@@ -1,8 +1,9 @@
 <resources>
+
     <string name="app_name">My Money</string>
     <string name="init_count">0</string>
     <string name="add_remark">請點擊輸入</string>
-    <string name="cost">花費:</string>
+    <string name="cost">金額:</string>
     <string name="date">日期:</string>
     <string name="remark">備註:</string>
     <string name="select_category">類別:</string>
@@ -14,4 +15,27 @@
         <item>收入</item>
 
     </string-array>
+
+    <string-array name="category_list">
+
+        <item>食</item>
+        <item>衣</item>
+        <item>住</item>
+        <item>行</item>
+        <item>育</item>
+        <item>樂</item>
+
+    </string-array>
+
+    <string-array name="small_category_list">
+
+        <item>早餐</item>
+        <item>午餐</item>
+        <item>晚餐</item>
+        <item>宵夜</item>
+        <item></item>
+        <item>樂</item>
+
+    </string-array>
+
 </resources>

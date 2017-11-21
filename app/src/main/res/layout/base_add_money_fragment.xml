@@ -5,26 +5,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/txt_category"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="95dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="93dp"
         android:text="@string/select_category"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_small_category"
-        app:layout_constraintEnd_toEndOf="@+id/txt_small_category"
+        app:layout_constraintBottom_toTopOf="@+id/edt_remark"
+        app:layout_constraintEnd_toStartOf="@+id/category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edt_date"
         />
 
-    <Spinner
-        android:id="@+id/spn_category"
+    <TextView
+        android:id="@+id/category"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="54dp"
+        android:background="@drawable/shape_background"
         app:layout_constraintBottom_toBottomOf="@+id/txt_category"
-        app:layout_constraintEnd_toEndOf="@+id/spn_small_category"
-        app:layout_constraintStart_toStartOf="@+id/spn_small_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_category"
         app:layout_constraintTop_toTopOf="@+id/txt_category"
         />
 
@@ -33,21 +41,27 @@
         android:id="@+id/txt_small_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="223dp"
+        android:layout_marginEnd="41dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="224dp"
         android:text="@string/select_small_category"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spn_small_category"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cost"
         />
 
-    <Spinner
+    <TextView
         android:id="@+id/spn_small_category"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="54dp"
+        android:background="@drawable/shape_background"
         app:layout_constraintBottom_toBottomOf="@+id/txt_small_category"
-        app:layout_constraintEnd_toEndOf="@+id/edt_date"
-        app:layout_constraintStart_toStartOf="@+id/edt_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_small_category"
         app:layout_constraintTop_toTopOf="@+id/txt_small_category"
         />
 
@@ -55,73 +69,72 @@
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
         android:text="@string/cost"
         android:textSize="25sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edt_cost"
+        app:layout_constraintEnd_toEndOf="@+id/date"
         app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <EditText
         android:id="@+id/edt_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="211dp"
-        android:ems="5"
 
+        android:ems="5"
         android:hint="@string/init_count"
         android:inputType="number"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/edt_date"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cost"
+        app:layout_constraintEnd_toEndOf="@+id/edt_remark"
+        app:layout_constraintStart_toStartOf="@+id/category"
         />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
         android:text="@string/date"
         android:textSize="25sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edt_date"
-        app:layout_constraintEnd_toEndOf="@+id/txt_small_category"
+        app:layout_constraintEnd_toEndOf="@+id/txt_category"
         app:layout_constraintStart_toStartOf="@+id/txt_category"
+        app:layout_constraintTop_toBottomOf="@+id/cost"
         />
 
     <EditText
         android:id="@+id/edt_date"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
-        android:layout_marginBottom="74dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="74dp"
         android:ems="5"
         android:hint="@string/init_count"
         android:inputType="date"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/edt_cost"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spn_small_category"
+        app:layout_constraintBaseline_toBaselineOf="@+id/date"
+        app:layout_constraintStart_toStartOf="@+id/edt_cost"
         />
 
     <TextView
         android:id="@+id/remark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
         android:text="@string/remark"
         android:textSize="25sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edt_remark"
-        app:layout_constraintStart_toStartOf="@+id/cost"
+        app:layout_constraintEnd_toEndOf="@+id/txt_small_category"
+        app:layout_constraintTop_toBottomOf="@+id/txt_small_category"
         />
 
     <EditText
         android:id="@+id/edt_remark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
         android:ems="5"
         android:hint="@string/add_remark"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/edt_cost"
-        app:layout_constraintTop_toBottomOf="@+id/edt_cost"
+        app:layout_constraintBaseline_toBaselineOf="@+id/remark"
+        app:layout_constraintStart_toStartOf="@+id/spn_small_category"
         />
 
 
