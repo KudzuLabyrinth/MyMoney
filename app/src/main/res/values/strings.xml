@@ -16,6 +16,8 @@
 
     </string-array>
 
+
+
     <string-array name="category_list">
 
         <item>食</item>
@@ -27,15 +29,79 @@
 
     </string-array>
 
-    <string-array name="small_category_list">
+
+
+    <string-array name="dieting_list">
 
         <item>早餐</item>
         <item>午餐</item>
         <item>晚餐</item>
         <item>宵夜</item>
-        <item></item>
-        <item>樂</item>
+        <item>點心</item>
+        <item>零食</item>
+        <item>獨享大餐</item>
 
     </string-array>
+
+
+
+    <string-array name="clothing_list">
+
+        <item>汰舊換新</item>
+        <item>二手交易</item>
+        <item>添購新衣</item>
+        <item>換季換裝</item>
+        <item>品牌追隨</item>
+
+    </string-array>
+
+
+
+    <string-array name="housing_list">
+
+        <item>日常用品</item>
+        <item>水電瓦斯</item>
+        <item>房租房貸</item>
+
+    </string-array>
+
+
+
+    <string-array name="transportation_list">
+
+        <item>公共交通費</item>
+        <item>計程車費</item>
+        <item>汽機車加油費</item>
+        <item>火車飛機費</item>
+        <item>分期付款</item>
+        <item>車貸</item>
+
+    </string-array>
+
+
+
+
+    <string-array name="education_list">
+
+        <item>書報雜誌</item>
+        <item>上課進修</item>
+        <item>網路學習</item>
+        <item>學費學貸</item>
+
+    </string-array>
+
+
+
+    <string-array name="entertainment_list">
+
+        <item>運動健身</item>
+        <item>朋友聚餐</item>
+        <item>休閒玩樂</item>
+        <item>寵物寶貝</item>
+        <item>旅遊度假</item>
+        <item>奢侈敗家</item>
+
+    </string-array>
+
 
 </resources>
