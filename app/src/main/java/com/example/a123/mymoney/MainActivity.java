@@ -61,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+
             switch (position){
                 case 0:
-                    return new AddIncomeFragment();
-                case 1:
                     return new AddExpenseFragment();
+                case 1:
+                    return new AddIncomeFragment();
                 default:
             }
-
             return null;
         }
 

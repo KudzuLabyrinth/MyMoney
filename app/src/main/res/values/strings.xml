@@ -8,6 +8,7 @@
     <string name="remark">備註:</string>
     <string name="select_category">類別:</string>
     <string name="select_small_category">子類別:</string>
+    <string name="set_date"/>
 
     <string-array name="add_expense_income_fragment">
 
@@ -18,7 +19,7 @@
 
 
 
-    <string-array name="category_list">
+    <string-array name="expense_list">
 
         <item>食</item>
         <item>衣</item>
@@ -102,6 +103,37 @@
         <item>奢侈敗家</item>
 
     </string-array>
+
+
+
+    <string-array name="income_list">
+
+        <item>工作收入</item>
+        <item>其他收入</item>
+
+    </string-array>
+
+
+
+    <string-array name="work_income">
+
+        <item>薪水收入</item>
+        <item>利息收入</item>
+        <item>兼職收入</item>
+        <item>獎金收入</item>
+
+    </string-array>
+
+
+
+    <string-array name="other_income">
+
+        <item>禮金收入</item>
+        <item>意外收入</item>
+        <item>投資收入</item>
+
+    </string-array>
+
 
 
 </resources>

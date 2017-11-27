@@ -1,6 +1,7 @@
 package com.example.a123.mymoney.fragment;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -11,12 +12,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.a123.mymoney.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +34,9 @@ public class AddIncomeFragment extends Fragment {
     /**
      * 初始化類別選項物件
      */
-    private TextView category, subCategory;
+    private TextView category, subCategory, date;
+
+    private int mYear, mMonth, mDay;
 
 
     /**
@@ -44,12 +49,9 @@ public class AddIncomeFragment extends Fragment {
      * 存儲strings.xml的category_list物件
      */
     private String[] categoryResources;
-    private String[] dietingResources;
-    private String[] clothingResources;
-    private String[] housingResources;
-    private String[] transportationResources;
-    private String[] educationResources;
-    private String[] entertainmentResources;
+    private String[] workIncomeResources;
+    private String[] otherIncomeResources;
+
 
 
     /**
@@ -58,10 +60,13 @@ public class AddIncomeFragment extends Fragment {
     private List<String> keyList;
 
 
-    List<List<String>> valueList;
+
     /**
-     * 橫向的value list物件
+     * value list存儲子類別物件
      */
+    private List<List<String>> valueList;
+
+
 
 
     /**
@@ -70,11 +75,15 @@ public class AddIncomeFragment extends Fragment {
     private Map<String, List<String>> smallCategoryCreateHelper;
 
 
+
+
     /**
      * 提供給Acticvity呼叫
      */
     public AddIncomeFragment() {
     }
+
+
 
 
     /**
@@ -85,15 +94,15 @@ public class AddIncomeFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
 
+        categoryResources = getResources().getStringArray(R.array.income_list);
+        workIncomeResources = getResources().getStringArray(R.array.work_income);
+        otherIncomeResources = getResources().getStringArray(R.array.other_income);
 
-        categoryResources = getResources().getStringArray(R.array.category_list);
-        dietingResources = getResources().getStringArray(R.array.dieting_list);
-        clothingResources = getResources().getStringArray(R.array.clothing_list);
-        housingResources = getResources().getStringArray(R.array.housing_list);
-        transportationResources = getResources().getStringArray(R.array.transportation_list);
-        educationResources = getResources().getStringArray(R.array.education_list);
-        entertainmentResources = getResources().getStringArray(R.array.entertainment_list);
 
         /*
          * 將資源檔轉換成List方便增刪改查
@@ -102,23 +111,15 @@ public class AddIncomeFragment extends Fragment {
 
         //子類別的List value
 
-        List<String> dietingList = new ArrayList<>(Arrays.asList(dietingResources));
-        List<String> clothingList = new ArrayList<>(Arrays.asList(clothingResources));
-        List<String> housingList = new ArrayList<>(Arrays.asList(housingResources));
-        List<String> transportationList = new ArrayList<>(Arrays.asList(transportationResources));
-        List<String> educationList = new ArrayList<>(Arrays.asList(educationResources));
-        List<String> entertainmentList = new ArrayList<>(Arrays.asList(entertainmentResources));
-
+        List<String> workIncomeList = new ArrayList<>(Arrays.asList(workIncomeResources));
+        List<String> otherIncomeList = new ArrayList<>(Arrays.asList(otherIncomeResources));
 
         // 將上列List資源存放在KeyList中
 
         valueList = new ArrayList<>();
-        valueList.add(dietingList);
-        valueList.add(clothingList);
-        valueList.add(housingList);
-        valueList.add(transportationList);
-        valueList.add(educationList);
-        valueList.add(entertainmentList);
+        valueList.add(workIncomeList);
+        valueList.add(otherIncomeList);
+
 
         smallCategoryCreateHelper = new HashMap<>();
 
@@ -129,12 +130,16 @@ public class AddIncomeFragment extends Fragment {
     }
 
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_income_fragment, container, false);
+        view.getRootView().setBackgroundColor(Color.rgb(230,230,204));
         category = view.findViewById(R.id.category);
-        subCategory = view.findViewById(R.id.spn_small_category);
+        subCategory = view.findViewById(R.id.sub_category);
+        date = view.findViewById(R.id.date);
 
         //初始化類別內容
         category.setTextColor(Color.BLACK);
@@ -145,6 +150,8 @@ public class AddIncomeFragment extends Fragment {
         subCategory.setTextColor(Color.BLUE);
         subCategory.setTextSize(25.0f);
         subCategory.setText(smallCategoryCreateHelper.get(keyList.get(categoryPosition)).get(0));
+
+        date.setText(setDateFormat(mYear,mMonth,mDay));
 
 
         category.setOnClickListener(new View.OnClickListener() {
@@ -190,8 +197,35 @@ public class AddIncomeFragment extends Fragment {
 
         });
 
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                new DatePickerDialog(getContext(),AlertDialog.THEME_DEVICE_DEFAULT_LIGHT ,new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int day) {
+                        String format = getString(R.string.set_date) + setDateFormat(year, month, day);
+                        date.setText(format);
+                    }
+                }, mYear, mMonth, mDay).show();
+            }
+        });
+
         return view;
     }
+
+
+
+    private String setDateFormat(int year, int month, int day) {
+        return String.valueOf(year) + "/"
+                + String.valueOf(month + 1) + "/"
+                + String.valueOf(day);
+
+    }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
