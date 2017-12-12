@@ -65,7 +65,7 @@ public class AddExpenseFragment extends Fragment {
     private List<String> keyList;
 
 
-    List<List<String>> valueList;
+    private List<List<String>> valueList;
     /**
      * 橫向的value list物件
      */
@@ -144,18 +144,18 @@ public class AddExpenseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_income_fragment, container, false);
         view.getRootView().setBackgroundColor(Color.rgb(230,230,204));
-        category = view.findViewById(R.id.category);
-        subCategory = view.findViewById(R.id.sub_category);
-        date = view.findViewById(R.id.date);
+        category = view.findViewById(R.id.edtCategory);
+        subCategory = view.findViewById(R.id.edtSubCategory);
+        date = view.findViewById(R.id.txtDate);
 
         //初始化類別內容
         category.setTextColor(Color.BLACK);
-        category.setTextSize(25.0f);
+        category.setTextSize(22.0f);
         category.setText(keyList.get(categoryPosition));
 
         //捕捉父類別索引決定子類別顯示內容
         subCategory.setTextColor(Color.BLUE);
-        subCategory.setTextSize(25.0f);
+        subCategory.setTextSize(22.0f);
         subCategory.setText(smallCategoryCreateHelper.get(keyList.get(categoryPosition)).get(0));
 
         date.setText(setDateFormat(mYear,mMonth,mDay));

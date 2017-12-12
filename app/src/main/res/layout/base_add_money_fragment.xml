@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,136 +8,117 @@
     tools:layout_editor_absoluteY="25dp">
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginBottom="138dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="138dp"
-        android:text="@string/select_category"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/category"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
-        />
-
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="54dp"
-        android:background="@drawable/shape_background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView7"
-        />
-
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="244dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="81dp"
-        android:text="@string/select_small_category"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/sub_category"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/sub_category"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="54dp"
-        android:background="@drawable/shape_background"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
-        />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="86dp"
-        android:text="@string/cost"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <EditText
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="5"
-        android:hint="@string/init_count"
-        android:inputType="number"
-        android:textSize="25sp"
-        android:maxLines="1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/date"
-        />
+        android:layout_alignStart="@+id/date"
+        android:layout_alignTop="@+id/edtCost"
+        android:text="@string/cost"
+        android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginStart="81dp"
-        android:text="@string/date"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/date"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+    <EditText
+        android:id="@+id/edtCost"
+        android:layout_width="209dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/txtDate"
+        android:layout_alignStart="@+id/txtDate"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_background"
+        android:hint="0"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textSize="25sp"/>
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="54dp"
-        android:background="@drawable/shape_background"
-        android:ems="5"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView10"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/category"
+        android:layout_alignTop="@+id/txtDate"
+        android:text="@string/date"
+        android:textSize="25sp"/>
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/txtDate"
+        android:layout_width="209dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/edtCategory"
+        android:layout_alignStart="@+id/edtCategory"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_background"
+        android:ems="5"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_alignStart="@+id/subCategory"
+        android:layout_alignTop="@+id/edtCategory"
+        android:text="@string/select_category"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/edtCategory"
+        android:layout_width="209dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/edtSubCategory"
+        android:layout_alignStart="@+id/edtSubCategory"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_background"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:id="@+id/subCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/comment"
+        android:layout_alignTop="@+id/edtSubCategory"
+        android:text="@string/select_small_category"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/edtSubCategory"
+        android:layout_width="209dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/comment"
+        android:layout_alignStart="@+id/edtComment"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_background"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/edtComment"
+        android:layout_marginStart="32dp"
         android:text="@string/remark"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        />
+        android:textSize="25sp"/>
 
     <EditText
-        android:id="@+id/remark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/edtComment"
+        android:layout_width="209dp"
+        android:layout_height="34dp"
+        android:layout_above="@+id/btnSave"
+        android:layout_alignStart="@+id/btnSave"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/shape_background"
         android:ems="5"
         android:hint="@string/add_remark"
-        android:textSize="20sp"
         android:maxLines="2"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/sub_category"
-        />
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="125dp"
+        android:text="儲存"/>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

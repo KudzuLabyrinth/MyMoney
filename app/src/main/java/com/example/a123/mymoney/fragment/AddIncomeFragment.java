@@ -78,7 +78,7 @@ public class AddIncomeFragment extends Fragment {
 
 
     /**
-     * 提供給Acticvity呼叫
+     * 提供給Activity呼叫
      */
     public AddIncomeFragment() {
     }
@@ -137,9 +137,9 @@ public class AddIncomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_income_fragment, container, false);
         view.getRootView().setBackgroundColor(Color.rgb(230,230,204));
-        category = view.findViewById(R.id.category);
-        subCategory = view.findViewById(R.id.sub_category);
-        date = view.findViewById(R.id.date);
+        category = view.findViewById(R.id.edtCategory);
+        subCategory = view.findViewById(R.id.edtSubCategory);
+        date = view.findViewById(R.id.txtDate);
 
         //初始化類別內容
         category.setTextColor(Color.BLACK);

@@ -14,21 +14,35 @@ import com.example.a123.mymoney.fragment.AddExpenseFragment;
 import com.example.a123.mymoney.fragment.AddIncomeFragment;
 
 public class MainActivity extends AppCompatActivity {
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    public static SQLiteHelper sqLiteHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.billing);
 
-        viewPager= findViewById(R.id.view_pager);
+        init();
 
-        viewPager.setAdapter(new CustomerAdapter(getSupportFragmentManager(),getApplicationContext()));
+        sqLiteHelper = new SQLiteHelper(
+                MainActivity.this,
+                "MyMoneyDB.sqlite",
+                null,
+                1);
 
-        tabLayout=findViewById(R.id.tab_layout);
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS FINANCIAL " +
+                "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " cost VARCHAR," +
+                " date VARCHAR," +
+                " category VARCHAR," +
+                " subCategory VARCHAR," +
+                " comment VARCHAR)");
+
+
+        viewPager.setAdapter(new CustomerAdapter(getSupportFragmentManager(), getApplicationContext()));
         tabLayout.setupWithViewPager(viewPager);
-
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -50,19 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
     private class CustomerAdapter extends FragmentPagerAdapter {
 
-
-        private String[] labels=getResources().getStringArray(R.array.add_expense_income_fragment);
+        private String[] labels = getResources().getStringArray(R.array.add_expense_income_fragment);
 
         public CustomerAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
         }
 
-
-
         @Override
         public Fragment getItem(int position) {
 
-            switch (position){
+            switch (position) {
                 case 0:
                     return new AddExpenseFragment();
                 case 1:
@@ -77,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
             return labels.length;
         }
 
-
-
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
@@ -86,5 +95,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void init() {
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
+    }
+
 
 }
